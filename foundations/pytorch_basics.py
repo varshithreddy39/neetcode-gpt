@@ -6,7 +6,7 @@ from torchtyping import TensorType
 class Solution:
     def reshape(self, to_reshape: TensorType[float]) -> TensorType[float]:
         M,N=to_reshape.shape
-        reshaped=torch.reshape(to_reshape,(M*N//2,2))
+        reshaped=torch.reshape(to_reshape,(M*N //2 ,2))
         return torch.round(reshaped,decimals=4)
         
 
@@ -20,13 +20,14 @@ class Solution:
     def concatenate(self, cat_one: TensorType[float], cat_two: TensorType[float]) -> TensorType[float]:
         # Join two tensors side-by-side along dim=1
         # Use torch.cat((a, b), dim=1)
-        contatented=torch.cat((cat_one,cat_two),dim=1)
-        return torch.round(contatented,decimals=4)
+        contact=torch.cat((cat_one,cat_two),dim=1)
+        return torch.round(contact,decimals=4)
         
 
     def get_loss(self, prediction: TensorType[float], target: TensorType[float]) -> TensorType[float]:
         # Compute Mean Squared Error between prediction and target
         # Use torch.nn.functional.mse_loss(prediction, target)
+
         loss=torch.nn.functional.mse_loss(prediction,target)
         return torch.round(loss,decimals=4)
         
